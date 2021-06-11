@@ -1,0 +1,19 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+
+#RUN npm install
+
+RUN npm install -g npm@7.16.0
+#RUN chown -R $user:$user /app
+#RUN chown -R node:node /app
+#RUN chown -R 1000:1000 /app
+#RUN mkdir /app/node_modules/.cache
+#RUN chmod 777 /app
+
+COPY . .
+
+CMD ["npm", "run", "start"]
+
